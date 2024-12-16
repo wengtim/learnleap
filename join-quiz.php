@@ -1,5 +1,13 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+include "database.php";
+
+$quizId = isset($_GET['quiz_id']) ? $_GET['quiz_id'] : 0;
+$quiz = getQuizById($quizId);
+
 ?>
 
 <!DOCTYPE html>
@@ -128,13 +136,20 @@
          position: relative;
       }
 
+      .quiz-lecturer {
+         font-size: 1.2rem;
+         margin-bottom: 15px;
+         color: #333;
+         font-weight: bold;
+      }
+
       .quiz-title {
          font-size: 2.5rem;
          font-weight: bold;
          margin-bottom: 20px;
       }
 
-      .quiz-description p {
+      .quiz-details p {
          font-size: 1.4rem;
          margin-bottom: 100px;
          color: #333;
@@ -152,8 +167,9 @@
          align-items: center;
          gap: 10px;
          transition: background-color 0.3s ease;
-         position: absolute;
-         bottom: -200px;
+         position: relative;
+         margin-top: 30px;
+         bottom: -90px;
          left: 50%;
          transform: translateX(-50%);
       }
@@ -183,10 +199,21 @@
       </div>
    </header>
    <div class="quiz-container">
-      <h1 class="quiz-title">Quiz Name</h1>
-      <div class="quiz-description">
-         <p>About Quiz</p>
-      </div>
+      <?php
+      if ($quiz) {
+         echo '<h1 class="quiz-title">' . $quiz['quiz_name'] . '</h1>';
+         echo '<div class="quiz-details">';
+         echo '<p>' . $quiz['quiz_details'] . '</p>';
+         echo '</div>';
+         echo '<div class="quiz-lecturer">';
+         echo '<p>' . 'Lecturer: ' . $quiz['lecturer_name'] . '</p>';
+         echo '</div>';
+         echo '</div>';
+      } else {
+         echo '<p>Quiz not found.</p>';
+      }
+      ?>
+
       <a href="" class="start-button">START <span>&rarr;</span></a>
    </div>
 

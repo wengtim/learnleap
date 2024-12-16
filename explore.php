@@ -1,5 +1,10 @@
 <?php
+include "database.php";
 
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+$perPage = 3;
+
+$quizzes = getQuizData();
 ?>
 
 <!DOCTYPE html>
@@ -149,9 +154,9 @@
          margin-top: 20px;
       }
 
-      .mostPlayed,
-      .mostLiked {
-         display: flex;
+      .mostPlayed {
+         display: grid;
+         grid-template-columns: repeat(3, 1fr);
          justify-content: center;
          align-items: center;
          gap: 70px;
@@ -197,19 +202,18 @@
       </div>
    </header>
    <div class="explore-content">
-      <h1>Most Played</h1>
+      <h1>Quizies</h1>
       <div class="explore-cards">
          <div class="mostPlayed">
-            <a href="join-quiz.php" class="button">Button 1</a>
-            <a href="" class="button">Button 2</a>
-            <a href="" class="button">Button 3</a>
-         </div>
-
-         <h1>Most Liked</h1>
-         <div class="mostLiked">
-            <a href="" class="button">Button 1</a>
-            <a href="" class="button">Button 2</a>
-            <a href="" class="button">Button 3</a>
+            <?php
+            if (!empty($quizzes)) {
+               foreach ($quizzes as $quiz) {
+                  echo '<a href="join-quiz.php?quiz_id=' . $quiz['quiz_id'] . '" class="button">' . $quiz['quiz_name'] . '</a>';
+               }
+            } else {
+               echo '<p>No quizzes found.</p>';
+            }
+            ?>
          </div>
       </div>
    </div>
