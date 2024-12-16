@@ -190,6 +190,64 @@ $quiz = getQuizById($quizId);
       .start-button span {
          font-size: 1.8rem;
       }
+
+      @media screen and (max-width: 768px) {
+
+         .quiz-container {
+            background-color: #fff;
+            padding: 40px;
+            width: 90%;
+            max-width: 600px;
+            border: 2px solid #000;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            margin-top: 130px;
+            position: relative;
+         }
+
+         .start-button {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+            background-color: #000;
+            padding: 15px 30px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background-color 0.3s ease;
+            position: relative;
+            margin-top: 30px;
+            bottom: -90px;
+            left: 50%;
+            transform: translateX(-50%);
+         }
+
+         .start-button:hover {
+            background-color: #72BF6A;
+         }
+
+         .start-button span {
+            font-size: 1.8rem;
+         }
+
+         .quiz-name {
+            font-size: 2.0rem;
+            color: #333;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 21%;
+            left: 26%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+         }
+      }
    </style>
 </head>
 
