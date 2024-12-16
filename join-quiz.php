@@ -63,6 +63,10 @@
          border-bottom: 2px solid #000;
       }
 
+      span {
+         color: #0F5132;
+      }
+
       .logo {
          font-size: 33px;
          color: var(--black-color);
