@@ -143,11 +143,20 @@ $quiz = getQuizById($quizId);
          font-weight: bold;
       }
 
-      .quiz-title {
-         font-size: 2.5rem;
+      .quiz-name {
+         font-size: 2.0rem;
+         color: #333;
          font-weight: bold;
-         margin-bottom: 20px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         position: absolute;
+         top: 20%;
+         left: 35%;
+         transform: translate(-50%, -50%);
+         margin: 0;
       }
+
 
       .quiz-details p {
          font-size: 1.4rem;
@@ -198,10 +207,16 @@ $quiz = getQuizById($quizId);
          <input type="text" placeholder="Search">
       </div>
    </header>
+   <div class="quiz-name">
+      <?php
+      if ($quiz) {
+         echo '<h1 class="quiz-name">' . $quiz['quiz_name'] . '</h1>';
+      }
+      ?>
+   </div>
    <div class="quiz-container">
       <?php
       if ($quiz) {
-         echo '<h1 class="quiz-title">' . $quiz['quiz_name'] . '</h1>';
          echo '<div class="quiz-details">';
          echo '<p>' . $quiz['quiz_details'] . '</p>';
          echo '</div>';

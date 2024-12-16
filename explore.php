@@ -39,6 +39,7 @@ $quizzes = getQuizData();
          text-decoration: none;
          border: none;
          outline: none;
+         gap: 10px;
          font-family: 'Montserrat', sans-serif;
       }
 
@@ -161,6 +162,18 @@ $quizzes = getQuizData();
          align-items: center;
          gap: 70px;
          margin: 20px 0;
+      }
+
+      @media only screen and (max-width: 768px) {
+         .mostPlayed {
+            grid-template-columns: repeat(2, 1fr);
+         }
+      }
+
+      @media only screen and (max-width: 480px) {
+         .mostPlayed {
+            grid-template-columns: 1fr;
+         }
       }
 
       .button {
