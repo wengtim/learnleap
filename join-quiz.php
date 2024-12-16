@@ -17,12 +17,10 @@
       @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
       @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
-      .fade-out {
-         opacity: 0;
-         transition: opacity 0.5s ease;
-      }
-
       body {
+         color: var(--text-color);
+         background: var(--bg-color);
+         padding-top: 110px;
          transition: opacity 0.5s ease;
       }
 
@@ -50,18 +48,6 @@
          --p-font: 1rem;
       }
 
-      body {
-         color: var(--text-color);
-         background: var(--bg-color);
-         padding-top: 110px;
-         transition: opacity 0.5s ease;
-      }
-
-      .fade-out {
-         opacity: 0;
-         transition: opacity 0.5s ease;
-      }
-
       header {
          position: fixed;
          top: 0;
@@ -75,10 +61,6 @@
          justify-content: space-between;
          transition: .50s ease;
          border-bottom: 2px solid #000;
-      }
-
-      span {
-         color: #0F5132;
       }
 
       .logo {
@@ -128,56 +110,56 @@
          border-color: var(--main-color);
       }
 
-      .explore-content {
-         text-align: center;
-         padding: 40px 20px;
-      }
-
-      .explore-content h1 {
-         font-size: 42px;
-         font-weight: 700;
-         margin-bottom: 20px;
-         color: #000;
-      }
-
-      .explore-cards {
-         display: flex;
-         flex-direction: column;
-         gap: 50px;
-         justify-content: center;
-         align-items: center;
-         margin-top: 20px;
-      }
-
-      .mostPlayed,
-      .mostLiked {
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         gap: 70px;
-         margin: 20px 0;
-      }
-
-      .button {
-         width: 220px;
-         height: 220px;
-         font-size: 16px;
-         background-color: #60a1b3;
-         color: #000;
-         border: 2px solid transparent;
-         border-radius: 5px;
-         cursor: pointer;
-         transition: all .50s ease;
-         display: flex;
-         justify-content: center;
-         align-items: center;
-      }
-
-      .button:hover {
-         transform: translateX(10px);
+      .quiz-container {
+         background-color: #fff;
+         padding: 40px;
+         width: 60%;
+         max-width: 600px;
          border: 2px solid #000;
-         background: #90e0d2;
-         color: #3c3d3c;
+         border-radius: 10px;
+         text-align: center;
+         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+         margin: 0 auto;
+         margin-top: 85px;
+         position: relative;
+      }
+
+      .quiz-title {
+         font-size: 2.5rem;
+         font-weight: bold;
+         margin-bottom: 20px;
+      }
+
+      .quiz-description p {
+         font-size: 1.4rem;
+         margin-bottom: 100px;
+         color: #333;
+      }
+
+      .start-button {
+         font-size: 1.5rem;
+         font-weight: bold;
+         text-decoration: none;
+         color: #fff;
+         background-color: #000;
+         padding: 15px 30px;
+         border-radius: 30px;
+         display: inline-flex;
+         align-items: center;
+         gap: 10px;
+         transition: background-color 0.3s ease;
+         position: absolute;
+         bottom: -200px;
+         left: 50%;
+         transform: translateX(-50%);
+      }
+
+      .start-button:hover {
+         background-color: #72BF6A;
+      }
+
+      .start-button span {
+         font-size: 1.8rem;
       }
    </style>
 </head>
@@ -196,22 +178,12 @@
          <input type="text" placeholder="Search">
       </div>
    </header>
-   <div class="explore-content">
-      <h1>Most Played</h1>
-      <div class="explore-cards">
-         <div class="mostPlayed">
-            <a href="join-quiz.php" class="button">Button 1</a>
-            <a href="" class="button">Button 2</a>
-            <a href="" class="button">Button 3</a>
-         </div>
-
-         <h1>Most Liked</h1>
-         <div class="mostLiked">
-            <a href="" class="button">Button 1</a>
-            <a href="" class="button">Button 2</a>
-            <a href="" class="button">Button 3</a>
-         </div>
+   <div class="quiz-container">
+      <h1 class="quiz-title">Quiz Name</h1>
+      <div class="quiz-description">
+         <p>About Quiz</p>
       </div>
+      <a href="" class="start-button">START <span>&rarr;</span></a>
    </div>
 
    <script>
